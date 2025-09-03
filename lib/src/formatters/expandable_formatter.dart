@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:log_hood/log_hood.dart';
+
 import '../core/log_entry.dart';
 import 'log_formatter.dart';
 

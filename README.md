@@ -283,10 +283,17 @@ final response = await client.get(Uri.parse('https://api.example.com/data'));
 
 ### Dio Interceptor
 
-For Dio users, add the interceptor (requires `dio` dependency):
+For Dio users, add `dio` to your pubspec.yaml, then import and use the interceptor:
+
+```yaml
+dependencies:
+  dio: ^5.4.0
+```
 
 ```dart
 import 'package:dio/dio.dart';
+import 'package:log_hood/log_hood.dart';
+// Import the Dio interceptor directly
 import 'package:log_hood/src/network/dio_interceptor.dart';
 
 final dio = Dio();
@@ -302,6 +309,8 @@ dio.addLogHoodInterceptor(
 // All Dio requests will be logged
 final response = await dio.get('https://api.example.com/data');
 ```
+
+**Note:** The Dio interceptor is only available when you have the `dio` package as a dependency in your project.
 
 ### Network Log Formatting
 

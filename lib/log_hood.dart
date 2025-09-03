@@ -13,8 +13,7 @@ export 'src/formatters/expandable_formatter.dart';
 
 // Network
 export 'src/network/http_interceptor.dart';
-// Dio interceptor - users must add dio dependency to use it
-export 'src/network/dio_interceptor.dart' show LogHoodDioInterceptor, LogHoodDioExtension;
+// Dio interceptor is not exported here - users must import it directly if they have dio dependency
 
 // Outputs
 export 'src/outputs/log_output.dart';
