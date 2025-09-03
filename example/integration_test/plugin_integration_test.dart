@@ -15,11 +15,15 @@ import 'package:log_hood/log_hood.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('getPlatformVersion test', (WidgetTester tester) async {
-    final LogHood plugin = LogHood();
-    final String? version = await plugin.getPlatformVersion();
-    // The version string depends on the host platform running the test, so
-    // just assert that some non-empty string is returned.
-    expect(version?.isNotEmpty, true);
+  testWidgets('LogHood initialization test', (WidgetTester tester) async {
+    // Initialize LogHood
+    await LogHood.initialize();
+    
+    // Test logging functionality
+    LogHood.i('Integration test log');
+    LogHood.d('Debug message', metadata: {'test': true});
+    
+    // Verify logger is initialized
+    expect(() => LogHood.logger, isNot(throwsStateError));
   });
 }

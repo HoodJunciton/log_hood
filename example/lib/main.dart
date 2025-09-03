@@ -20,7 +20,7 @@ void main() async {
   );
   
   // Configure console output with expandable formatter for network logs
-  final networkLogger = Logger(
+  Logger(
     name: 'NetworkDemo',
     outputs: [
       ConsoleOutput(
@@ -503,10 +503,10 @@ class _LogHoodDemoState extends State<LogHoodDemo> {
                         }
                         _showSnackBar('50 log messages sent!');
                       },
-                      child: const Text('Send 50 Log Messages'),
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size.fromHeight(40),
                       ),
+                      child: const Text('Send 50 Log Messages'),
                     ),
                   ],
                 ),
