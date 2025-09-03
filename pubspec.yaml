@@ -30,6 +30,7 @@ dependencies:
   
   # UI components  
   flutter_highlight: ^0.7.0
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:

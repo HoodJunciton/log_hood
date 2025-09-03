@@ -3,6 +3,8 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:convert';
 import 'package:log_hood/log_hood.dart';
+// ignore: implementation_imports
+import 'package:log_hood/src/network/dio_interceptor.dart'; // Required for Dio interceptor
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 
@@ -82,6 +84,7 @@ class _LogHoodDemoState extends State<LogHoodDemo> {
     _logger.info('Demo screen initialized');
     
     // Initialize HTTP client with logging
+    // The HTTP interceptor is included in the main package
     _httpClient = http.Client().withLogging(
       logger: Logger(
         name: 'HTTP',
@@ -95,6 +98,8 @@ class _LogHoodDemoState extends State<LogHoodDemo> {
     );
     
     // Initialize Dio with logging
+    // The Dio interceptor requires importing from src/network/dio_interceptor.dart
+    // This is because Dio is an optional dependency
     _dio = Dio()
       ..options.connectTimeout = const Duration(seconds: 10)
       ..options.receiveTimeout = const Duration(seconds: 10);
